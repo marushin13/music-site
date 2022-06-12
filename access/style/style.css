@@ -260,66 +260,83 @@ body {
 	line-height: 1.4;
 }
 
-/* Стили трендов */
-.tranding {
+/* Стили исполнителей */
+.performers {
+	position: relative;
 	padding: 100px 0;
 }
 
-.tranding__list {
-	display: flex;
-	margin: -20px;
-}
-
-.tranding__item {
-	flex: 0 0 33.333%;
-	padding: 20px;
-}
-
-.tranding__link {
-	position: relative;
-	display: inline-flex;
-	flex-direction: column;
+.performers::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
 	width: 100%;
-	min-height: 100%;
-	border: 5px solid var(--primary-color);
+	height: 6px;
+	background: linear-gradient(45deg, #08fcfe 0%, #f0a0ee 100%);
+}
+
+.performers__list {
+	font-family: var(--roboto-mono-font);
+	font-size: 20px;
+	letter-spacing: 0.025em;
+}
+
+.performers__item {
+	position: relative;
+	margin-bottom: 24px;
+	padding-left: 60px;
+}
+
+.performers__item::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	background: url(../img/icons/star.svg) center no-repeat;
+	background-size: cover;
+	width: 32px;
+	height: 32px;
+}
+
+.performers__item:last-child {
+	margin-bottom: 0;
+}
+
+/* Стили инструментов */
+.instruments {
+	padding: 100px 0;
+}
+
+.instruments__item:not(:last-child) {
+	margin-bottom: 32px;
+	padding-bottom: 32px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.instruments__subtitle {
+	font-size: 24px;
+	color: var(--primary-color);
+	margin-bottom: 24px;
+}
+
+.instruments__photo {
+	font-family: var(--roboto-mono-font);
+	margin-bottom: 20px;
+}
+
+.instruments__link {
 	color: var(--primary-color);
 	transition: all .3s ease-in-out;
 }
 
-.tranding__item:nth-child(3) .tranding__link {
-	border: 5px solid var(--blue-color);
-	color: var(--blue-color);
+.instruments__link:hover {
+	color: var(--primary-hover-color);
 }
 
-.tranding__link:hover {
-	transform: translateY(-8px);
-}
-
-.tranding__image {
-	height: 240px;
-}
-
-.tranding__image img {
-	object-fit: cover;
-	height: 100%;
-}
-
-
-.tranding__tag {
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	font-family: var(--roboto-mono-font);
-	letter-spacing: 0.025em;
-	text-transform: uppercase;
-	background-color: var(--dark-color);
-	padding: 4px 12px;
-}
-
-.tranding__subtitle {
-	font-size: 24px;
-	padding: 20px;
-	line-height: 1.4;
+.instruments__txt {
+	line-height: 1.5;
 }
 
 /* Стили футера */
@@ -442,18 +459,6 @@ body {
 		font-size: 40px;
 		margin-bottom: 32px;
 	}
-	.tranding {
-		padding: 80px 0;
-	}
-	.tranding__list {
-		flex-wrap: wrap;
-	}
-	.tranding__item {
-		flex: 0 0 50%;
-	}
-	.tranding__subtitle {
-		font-size: 20px;
-	}
 	.inner-page-p {
 		padding: 155px 0 80px;
 	}
@@ -462,6 +467,9 @@ body {
 	}
 	.gallery__item {
 		flex: 1 1 33.333%;
+	}
+	.performers, .instruments {
+		padding: 80px 0;
 	}
 }
 
@@ -474,13 +482,6 @@ body {
 	}
 	.menu__list {
 		margin-top: 20px;
-	}
-	.tranding__list {
-		margin: -12px;
-	}
-	.tranding__item {
-		flex: 0 0 100%;
-		padding: 12px;
 	}
 	.footer__wrapper {
 		flex-direction: column;
@@ -516,10 +517,10 @@ body {
 @media (max-width: 440px) {
 	.container {
 		padding-left: 16px;
-    	padding-right: 16px;
+		padding-right: 16px;
 	}
 	.section__title {
-		font-size: 34px;
+		font-size: 30px;
 		margin-bottom: 24px;
 	}
 	.offer {
@@ -531,23 +532,24 @@ body {
 	.offer__title {
 		font-size: 26px;
 	}
-	.tranding {
-		padding: 60px 0;
-	}
-	.tranding__image {
-		height: 200px;
-	}
-	.tranding__tag {
-		font-size: 14px;
-	}
-	.tranding__subtitle {
-		padding: 16px;
-		font-size: 18px;
-	}
 	.inner-page-p {
 		padding: 165px 0 60px;
 	}
 	.gallery__item {
 		flex: 1 1 100%;
+	}
+	.performers, .instruments {
+		padding: 60px 0;
+	}
+	.performers__list {
+		font-size: 16px;
+	}
+	.performers__item {
+		padding-left: 40px;
+		margin-bottom: 16px;
+	}
+	.performers__item::before {
+		width: 24px;
+		height: 24px;
 	}
 }
