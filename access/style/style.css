@@ -1,0 +1,553 @@
+/* Обнуление стилей */
+* {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,
+:active {
+	outline: none;
+}
+a:focus,
+a:active {
+	outline: none;
+}
+aside,
+nav,
+footer,
+header,
+section {
+	display: block;
+}
+html,
+body {
+	height: 100%;
+}
+body {
+	line-height: 1;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+a,
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+ul li {
+	list-style: none;
+}
+img {
+	width: 100%;
+	display: block;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+	font-family: "Prosto One", sans-serif;
+}
+
+/* Подключение шрифтов */
+@font-face {
+	font-family: 'Prosto One';
+	src: url('fonts/ProstoOne-Regular.eot');
+	src: local('Prosto One'), 
+	url('fonts/ProstoOne-Regular.woff') format('woff'), 
+	url('fonts/ProstoOne-Regular.ttf') format('truetype'), 
+	url('fonts/ProstoOne-Regular.svg') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('access/fonts/Roboto-Medium.eot');
+	src: local('Roboto'), 
+	url('access/fonts/Roboto-Medium.woff') format('woff'), 
+	url('access/fonts/Roboto-Medium.ttf') format('truetype'), 
+	url('access/fonts/Roboto-Medium.svg') format('svg');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Roboto Mono';
+	src: url('access/fonts/RobotoMono-Medium.eot');
+	src: local('Roboto Mono'), 
+	url('access/fonts/RobotoMono-Medium.woff') format('woff'), 
+	url('access/fonts/RobotoMono-Medium.ttf') format('truetype'), 
+	url('access/fonts/RobotoMono-Medium.svg') format('svg');
+	font-weight: 500;
+	font-style: normal;
+}
+
+/* Общие (глобальные) стили */
+:root {
+	--white-color: #ffffff;
+	--gray-color: #717170;
+	--dark-color: #121211;
+	--primary-color:#E97B89;
+	--primary-hover-color:#eeb0b8;
+	--secondary-color: #FEFFA2;
+	--blue-color: #08fcfe;
+	
+	--roboto-mono-font: "Roboto Mono", sans-serif;
+}
+
+body {
+	color: var(--white-color);
+	font-family: "Roboto", sans-serif;
+	font-weight: 500;
+	font-size: 16px;
+	background-color: var(--dark-color);
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.main {
+	flex: 1 0 auto;
+}
+
+.container {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding-left: 40px;
+	padding-right: 40px;
+	width: 100%;
+}
+
+.section__title {
+	font-size: 48px;
+	text-transform: uppercase;
+	letter-spacing: 0.025em;
+	margin-bottom: 40px;
+
+	display: table;
+	background: linear-gradient(45deg, #08fcfe 50%, #f0a0ee 100%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #08fcfe;
+}
+
+.inner-page-p {
+	padding: 175px 0 100px;
+}
+
+.section__subtitle {
+	font-family: var(--roboto-mono-font);
+	color: var(--gray-color);
+	margin-top: 16px;
+	line-height: 1.4;
+}
+
+.section__subtitle span {
+	color: var(--primary-color);
+}
+
+/* Стили шапки */
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99;
+	background-color: var(--dark-color);
+	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.8);
+}
+
+.header__row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 16px 0;
+}
+
+.header__logo {
+	width: 250px;
+}
+
+.menu__list {
+	display: flex;
+}
+
+.menu__item {
+	margin-right: 32px;
+}
+
+.menu__item:last-child {
+	margin-right: 0px;
+}
+
+.menu__link {
+	display: block;
+	font-family: var(--roboto-mono-font);
+	text-transform: uppercase;
+	color: var(--primary-color);
+	letter-spacing: 0.025em;
+	transition: all .3s ease-in-out;	
+}
+
+.menu__link:hover, .menu__link:focus {
+	color: var(--primary-hover-color);
+	transform: translateY(-2px);
+}
+
+/* Стили главного экрана */
+.offer {
+	position: relative;
+	height: 85vh;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%), 
+	url(../img/main-image.jpg) center no-repeat;
+	background-size: cover;
+}
+
+.offer::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 6px;
+	background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+.offer__content {
+	position: absolute;
+	bottom: 0;
+	max-width: 1020px;
+	padding: 0 40px 60px 0;
+}
+
+.offer__tagline {
+	font-family: var(--roboto-mono-font);
+	letter-spacing: 0.025em;
+	color: var(--secondary-color);
+	text-transform: uppercase;
+	font-size: 14px;
+	margin-bottom: 12px;
+}
+
+.offer__title {
+	font-size: 36px;
+	color: var(--primary-color);
+	margin-bottom: 20px;
+	line-height: 1.1;
+}
+
+.offer__desc {
+	color: var(--secondary-color);
+	line-height: 1.4;
+}
+
+/* Стили трендов */
+.tranding {
+	padding: 100px 0;
+}
+
+.tranding__list {
+	display: flex;
+	margin: -20px;
+}
+
+.tranding__item {
+	flex: 0 0 33.333%;
+	padding: 20px;
+}
+
+.tranding__link {
+	position: relative;
+	display: inline-flex;
+	flex-direction: column;
+	width: 100%;
+	min-height: 100%;
+	border: 5px solid var(--primary-color);
+	color: var(--primary-color);
+	transition: all .3s ease-in-out;
+}
+
+.tranding__item:nth-child(3) .tranding__link {
+	border: 5px solid var(--blue-color);
+	color: var(--blue-color);
+}
+
+.tranding__link:hover {
+	transform: translateY(-8px);
+}
+
+.tranding__image {
+	height: 240px;
+}
+
+.tranding__image img {
+	object-fit: cover;
+	height: 100%;
+}
+
+
+.tranding__tag {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	font-family: var(--roboto-mono-font);
+	letter-spacing: 0.025em;
+	text-transform: uppercase;
+	background-color: var(--dark-color);
+	padding: 4px 12px;
+}
+
+.tranding__subtitle {
+	font-size: 24px;
+	padding: 20px;
+	line-height: 1.4;
+}
+
+/* Стили футера */
+.footer {
+	position: relative;
+	padding: 46px 0 40px;
+}
+
+.footer::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 6px;
+	background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+.footer__wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.footer__logo {
+	width: 250px;
+}
+
+.footer__list {
+	display: flex;
+}
+
+.footer__item {
+	margin: 0 6px;
+	width: 36px;
+	transition: all .3s ease-in-out;
+}
+
+.footer__item:hover, .footer__item:focus {
+	transform: translateY(-2px);
+}
+
+.footer__copyright {
+	font-size: 14px;
+	font-family: var(--roboto-mono-font);
+	letter-spacing: 0.025em;
+}
+
+/* Стили страницы «Музыка» */
+.music__list {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -20px;
+}
+
+.music__item {
+	flex: 1 1 33.333%;
+	padding: 20px;
+}
+
+.music__item audio {
+	width: 100%;
+}
+
+/* Стили страницы «Клипы» */
+.clips__list {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -20px;
+}
+
+.clips__item {
+	flex: 1 1 50%;
+	padding: 20px;
+}
+
+.clips__item video {
+	width: 100%;
+}
+
+/* Стили страницы «Галерея» */
+.gallery__list {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -12px;
+}
+
+.gallery__item {
+	flex: 1 1 25%;
+	height: 240px;
+	padding: 12px;
+	cursor: pointer;
+	transition: all .3s ease-in-out;
+	overflow: visible;
+}
+
+.gallery__item:hover {
+	transform: scale(1.2);
+}
+
+.gallery__item img {
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Медиа запросы (адаптив) */
+@media (max-width: 960px) {
+	.container {
+		padding-left: 32px;
+		padding-right: 32px;
+	}
+	.offer__content {
+		padding-right: 32px;
+	}
+	.offer__title {
+		font-size: 32px;
+		margin-bottom: 16px;
+	}
+	.section__title {
+		font-size: 40px;
+		margin-bottom: 32px;
+	}
+	.tranding {
+		padding: 80px 0;
+	}
+	.tranding__list {
+		flex-wrap: wrap;
+	}
+	.tranding__item {
+		flex: 0 0 50%;
+	}
+	.tranding__subtitle {
+		font-size: 20px;
+	}
+	.inner-page-p {
+		padding: 155px 0 80px;
+	}
+	.music__item {
+		flex: 1 1 50%;
+	}
+	.gallery__item {
+		flex: 1 1 33.333%;
+	}
+}
+
+@media (max-width: 680px) {
+	.header__row {
+		flex-direction: column;
+	}
+	.header__logo {
+		width: 220px;
+	}
+	.menu__list {
+		margin-top: 20px;
+	}
+	.tranding__list {
+		margin: -12px;
+	}
+	.tranding__item {
+		flex: 0 0 100%;
+		padding: 12px;
+	}
+	.footer__wrapper {
+		flex-direction: column;
+	}
+	.footer__list {
+		margin: 24px 0;
+	}
+	.footer__copyright {
+		margin-top: 16px;
+	}
+	.inner-page-p {
+		padding-top: 185px;
+	}
+	.music__list {
+		margin: -12px;
+	}
+	.music__item {
+		flex: 1 1 100%;
+		padding: 12px;
+	}
+	.clips__list {
+		margin: -12px;
+	}
+	.clips__item {
+		flex: 1 1 100%;
+		padding: 12px;
+	}
+	.gallery__item {
+		flex: 1 1 50%;
+	}
+}
+
+@media (max-width: 440px) {
+	.container {
+		padding-left: 16px;
+    	padding-right: 16px;
+	}
+	.section__title {
+		font-size: 34px;
+		margin-bottom: 24px;
+	}
+	.offer {
+		height: 540px;
+	}
+	.offer__content {
+		padding: 0 16px 32px 0;
+	}
+	.offer__title {
+		font-size: 26px;
+	}
+	.tranding {
+		padding: 60px 0;
+	}
+	.tranding__image {
+		height: 200px;
+	}
+	.tranding__tag {
+		font-size: 14px;
+	}
+	.tranding__subtitle {
+		padding: 16px;
+		font-size: 18px;
+	}
+	.inner-page-p {
+		padding: 165px 0 60px;
+	}
+	.gallery__item {
+		flex: 1 1 100%;
+	}
+}
